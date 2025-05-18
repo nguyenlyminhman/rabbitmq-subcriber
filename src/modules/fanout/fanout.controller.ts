@@ -5,7 +5,6 @@ import { Ctx, EventPattern, Payload, RmqContext } from '@nestjs/microservices';
 export class FanoutController {
     
     @EventPattern('foex_queue')
-
     getMsg(@Payload() data: any, @Ctx() context: RmqContext) {
       console.log('Fanout Queue Handling 01: ', data);
     }
