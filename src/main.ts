@@ -23,6 +23,7 @@ async function bootstrap(): Promise<NestExpressApplication> {
   app.enableVersioning();
   // Microservice config here
 
+  // Lắng nghe message từ các queue
   const rmqService = app.get<RmqService>(RmqService);
   app.connectMicroservice(rmqService.getOptions('drex_queue'));
   app.connectMicroservice(rmqService.getOptions('foex_queue'));
